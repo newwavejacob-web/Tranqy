@@ -12,7 +12,7 @@ export interface WorkItem {
   name: string;
   blurb: string;
   liveUrl?: string;
-  screenshot: {
+  screenshot?: {
     src: string;
     alt: string;
     width: number;

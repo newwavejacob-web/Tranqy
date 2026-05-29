@@ -76,13 +76,9 @@ export const FEATURED_WORK: WorkItem = {
     "A short, one-paragraph case study explaining what the client needed, what I built, and the outcome. Keep it concrete — numbers if you have them.",
   // TODO: live URL when client work ships.
   liveUrl: undefined,
-  screenshot: {
-    // TODO: drop a real screenshot in /public/work and update src + dimensions.
-    src: "/work/placeholder.png",
-    alt: "Screenshot of the featured project",
-    width: 1600,
-    height: 1000,
-  },
+  // TODO: drop a screenshot into /public/work/ and set this to
+  // { src, alt, width, height }. Until then Work renders a placeholder.
+  screenshot: undefined,
   // TODO: replace with the actual YouTube video ID from tranqy-lives.
   youtubeId: "dQw4w9WgXcQ",
 };
