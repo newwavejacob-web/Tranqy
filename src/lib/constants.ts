@@ -1,92 +1,124 @@
-import type { Project } from "@/types";
+import type { Service, Social, Testimonial, WorkItem } from "@/types";
 
-export const GITHUB_USERNAME = "newwavejacob-web";
-export const GITHUB_URL = `https://github.com/${GITHUB_USERNAME}`;
-export const LINKEDIN_URL = "https://linkedin.com/in/jacob";
-export const EMAIL = "jacob@example.com";
+export const BRAND = {
+  name: "Tranqy",
+  wordmark: "tranqy.com",
+  tagline: "Built quiet · runs loud",
+  // TODO: confirm LLC formation. Use "Tranqy" until Tranq Tech LLC is filed.
+  legalName: "Tranq Tech LLC",
+  location: "Orlando, FL",
+} as const;
 
-export const FEATURED_PROJECTS: Project[] = [
+// TODO: confirm cal.com handle before launch.
+export const CTA_URL = "https://cal.com/jacob";
+export const CTA_LABEL = "Book a 15-min call";
+
+// TODO: set up jacob@tranqy.com inbox.
+export const EMAIL_DISPLAY = "jacob@tranqy.com";
+// Resend sends from this address (must be on a verified domain in Resend).
+export const CONTACT_TO = "jacob@tranqy.com";
+
+export const SERVICES: Service[] = [
   {
-    name: "HealthDB",
-    description:
-      "Distributed database implementing the Raft consensus algorithm from scratch in Rust. Built for high availability and fault tolerance with a custom write-ahead log, leader election, log replication, and network protocol design.",
-    tags: ["Rust", "Raft Consensus", "Distributed Systems", "Write-Ahead Log"],
-    language: "Rust",
-    url: `${GITHUB_URL}/HealthDB`,
+    slug: "launch-site",
+    name: "Launch Site",
+    tagline:
+      "A fast 5-page marketing site you can hand to a customer the day it ships.",
+    includes: [
+      "Up to 5 responsive pages",
+      "Contact form wired to your inbox",
+      "Basic on-page SEO + sitemap",
+      "Analytics + performance tuning",
+    ],
+    // TODO: confirm pricing
+    startingPrice: "$X,XXX",
+    ctaLabel: "Get started",
+    ctaHref: CTA_URL,
   },
   {
-    name: "Seal Bound",
-    description:
-      "A 2D, narrative-driven, turn-based RPG that weaves together the dungeon exploration of Pok\u00e9mon Mystery Dungeon with the relationship-driven heart of Stardew Valley.\n\nYou wake at the edge of a quiet village with no memory\u2014only an inexplicable pull toward ancient Seals that hold the fabric of reality together. As entropy spreads and the world begins to unravel, you\u2019ll discover that these Seals don\u2019t want sacrifice. They want something far more difficult to give: genuine connection.\n\nForm bonds with the villagers of Hearthwyn. Venture into corrupted dungeons. Recover fragments of your lost past. And learn that the world was never meant to be carried by one pair of hands.",
-    tags: ["Game Dev", "2D RPG", "Turn-based", "Narrative"],
-    language: "C#",
-    isPrivate: true,
-    inProgress: true,
+    slug: "custom-build",
+    name: "Custom Build",
+    tagline:
+      "Bespoke web apps, internal tools, dashboards, and API integrations.",
+    includes: [
+      "Discovery + scope doc up front",
+      "Iterative delivery, no surprises",
+      "Auth, payments, and 3rd-party integrations",
+      "Handoff with deploy + runbook",
+    ],
+    // TODO: confirm pricing
+    startingPrice: "$X,XXX+",
+    ctaLabel: "Start a project",
+    ctaHref: CTA_URL,
+  },
+  {
+    slug: "audit-fix",
+    name: "Audit & Fix",
+    tagline:
+      "I tear apart your existing site for performance, SEO, and accessibility wins.",
+    includes: [
+      "Lighthouse + Core Web Vitals report",
+      "Prioritized fix list with effort estimates",
+      "Option to have me implement the fixes",
+      "Turnaround in under a week",
+    ],
+    // TODO: confirm pricing
+    startingPrice: "$XXX flat",
+    ctaLabel: "Book an audit",
+    ctaHref: CTA_URL,
   },
 ];
 
-export const IOT_PROJECTS: Project[] = [
-  {
-    name: "IoT Sensor Dashboard",
-    description:
-      "Real-time monitoring dashboard for IoT sensor networks with data visualization and alerting.",
-    tags: ["IoT", "Embedded", "Real-time"],
-    language: "Python",
+export const FEATURED_WORK: WorkItem = {
+  // TODO: replace with real client work as it ships.
+  name: "Placeholder Project",
+  blurb:
+    "A short, one-paragraph case study explaining what the client needed, what I built, and the outcome. Keep it concrete — numbers if you have them.",
+  // TODO: live URL when client work ships.
+  liveUrl: undefined,
+  screenshot: {
+    // TODO: drop a real screenshot in /public/work and update src + dimensions.
+    src: "/work/placeholder.png",
+    alt: "Screenshot of the featured project",
+    width: 1600,
+    height: 1000,
   },
+  // TODO: replace with the actual YouTube video ID from tranqy-lives.
+  youtubeId: "dQw4w9WgXcQ",
+};
+
+export const TESTIMONIALS: Testimonial[] = [
+  // TODO: add real testimonials as clients ship.
 ];
 
-export const OTHER_PROJECTS: Project[] = [
-  {
-    name: "Solaris Shell",
-    description:
-      "A Fallout-themed C shell with custom built-in commands, process management, and a retro post-apocalyptic UI.",
-    tags: ["C", "Systems", "Shell"],
-    language: "C",
-    url: `${GITHUB_URL}/Solaris-Shell`,
-  },
-  {
-    name: "MiniC Compiler",
-    description:
-      "Compiler for a tiny Pascal-like language featuring lexical analysis, parsing, and code generation.",
-    tags: ["C", "Compilers", "Language Design"],
-    language: "C",
-    url: `${GITHUB_URL}/MiniC-Compiler`,
-  },
-  {
-    name: "What 2 Watch",
-    description:
-      "Movie and TV recommendation service built in Go for when you don\u2019t know what to watch.",
-    tags: ["Go", "API", "Recommendations"],
-    language: "Go",
-    url: `${GITHUB_URL}/What-2-Watch`,
-  },
-  {
-    name: "Shadow of the Sword",
-    description:
-      "3D souls-like parry-based combat game built in Unity with custom shader work.",
-    tags: ["Unity", "Game Dev", "3D", "Shaders"],
-    language: "C#",
-    url: `${GITHUB_URL}/shadow-of-the-sword-4053`,
-  },
-];
+const GITHUB_USERNAME = "newwavejacob-web";
 
-export const SKILLS = [
-  "Rust",
-  "C",
-  "Go",
-  "TypeScript",
-  "C#",
-  "Python",
-  "Systems Programming",
-  "Distributed Systems",
-  "Game Development",
-  "Compilers",
-  "IoT",
-  "Linux",
+export const SOCIALS: Social[] = [
+  {
+    platform: "youtube",
+    label: "YouTube",
+    href: "https://youtube.com/@tranqy-lives",
+  },
+  {
+    platform: "kick",
+    label: "Kick",
+    href: "https://kick.com/tranqy_lives",
+  },
+  {
+    platform: "twitch",
+    label: "Twitch",
+    href: "https://twitch.tv/tranqy_lives",
+  },
+  {
+    platform: "github",
+    label: "GitHub",
+    href: `https://github.com/${GITHUB_USERNAME}`,
+  },
 ];
 
 export const NAV_LINKS = [
-  { label: "Projects", href: "#projects" },
-  { label: "Activity", href: "#activity" },
+  { label: "Services", href: "#services" },
+  { label: "Work", href: "#work" },
   { label: "About", href: "#about" },
-];
+  { label: "Contact", href: "#contact" },
+] as const;

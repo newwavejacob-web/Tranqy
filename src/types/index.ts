@@ -1,27 +1,42 @@
-export interface Project {
+export interface Service {
+  slug: string;
   name: string;
-  description: string;
-  tags: string[];
-  language: string;
-  url?: string;
-  isPrivate?: boolean;
-  inProgress?: boolean;
+  tagline: string;
+  includes: string[];
+  startingPrice: string;
+  ctaLabel: string;
+  ctaHref: string;
 }
 
-export interface GitHubEvent {
-  id: string;
-  type: string;
-  repo: {
-    name: string;
-    url: string;
+export interface WorkItem {
+  name: string;
+  blurb: string;
+  liveUrl?: string;
+  screenshot: {
+    src: string;
+    alt: string;
+    width: number;
+    height: number;
   };
-  payload: {
-    commits?: Array<{
-      sha: string;
-      message: string;
-    }>;
-    ref?: string;
-    action?: string;
-  };
-  created_at: string;
+  youtubeId?: string;
+}
+
+export interface Testimonial {
+  quote: string;
+  author: string;
+  role?: string;
+  company?: string;
+}
+
+export type SocialPlatform =
+  | "youtube"
+  | "kick"
+  | "twitch"
+  | "github"
+  | "email";
+
+export interface Social {
+  platform: SocialPlatform;
+  label: string;
+  href: string;
 }
