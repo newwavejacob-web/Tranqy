@@ -1,17 +1,40 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
+import { Inter, JetBrains_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-jetbrains-mono",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
-  title: "Jacob — Systems Programmer",
-  description:
-    "Portfolio of Jacob, a systems programmer and CS student at UCF. Building distributed systems in Rust, compilers, shells, and games.",
-  openGraph: {
-    title: "Jacob — Systems Programmer",
-    description:
-      "Portfolio of Jacob, a systems programmer and CS student at UCF. Building distributed systems in Rust, compilers, shells, and games.",
-    type: "website",
+  metadataBase: new URL("https://tranqy.com"),
+  title: {
+    default: "Tranqy — websites that ship",
+    template: "%s · Tranqy",
   },
-  metadataBase: new URL("https://jacob.dev"),
+  description:
+    "Tranqy builds fast, no-nonsense websites and custom web apps for small businesses. Based in Orlando, FL.",
+  openGraph: {
+    title: "Tranqy — websites that ship",
+    description:
+      "Tranqy builds fast, no-nonsense websites and custom web apps for small businesses. Based in Orlando, FL.",
+    type: "website",
+    url: "https://tranqy.com",
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#0e0f14",
+  colorScheme: "dark",
 };
 
 export default function RootLayout({
@@ -20,35 +43,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="dark" suppressHydrationWarning>
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
-          rel="stylesheet"
-        />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              try {
-                const theme = localStorage.getItem('theme');
-                if (theme === 'light') {
-                  document.documentElement.classList.remove('dark');
-                } else if (!theme && window.matchMedia('(prefers-color-scheme: light)').matches) {
-                  document.documentElement.classList.remove('dark');
-                }
-              } catch {}
-            `,
-          }}
-        />
-      </head>
-      <body className="bg-[#fafafa] dark:bg-[#0a0a0a] text-neutral-900 dark:text-neutral-100 antialiased transition-colors">
+    <html
+      lang="en"
+      className={`${inter.variable} ${jetbrainsMono.variable}`}
+      suppressHydrationWarning
+    >
+      <body>
         {children}
+        <Analytics />
       </body>
     </html>
   );
