@@ -14,9 +14,9 @@ export const CTA_URL = "https://cal.com/jacob";
 export const CTA_LABEL = "Book a 15-min call";
 
 // TODO: set up jacob@tranqy.com inbox.
-export const EMAIL_DISPLAY = "jacob@tranqy.com";
+export const EMAIL_DISPLAY = "jacobrberts@gmail.com";
 // Resend sends from this address (must be on a verified domain in Resend).
-export const CONTACT_TO = "jacob@tranqy.com";
+export const CONTACT_TO = "jacobrberts@gmail.com";
 
 export const SERVICES: Service[] = [
   {
@@ -31,7 +31,7 @@ export const SERVICES: Service[] = [
       "Analytics + performance tuning",
     ],
     // TODO: confirm pricing
-    startingPrice: "$X,XXX",
+    startingPrice: "$700",
     ctaLabel: "Get started",
     ctaHref: CTA_URL,
   },
@@ -47,7 +47,7 @@ export const SERVICES: Service[] = [
       "Handoff with deploy + runbook",
     ],
     // TODO: confirm pricing
-    startingPrice: "$X,XXX+",
+    startingPrice: "$1200",
     ctaLabel: "Start a project",
     ctaHref: CTA_URL,
   },
@@ -63,7 +63,7 @@ export const SERVICES: Service[] = [
       "Turnaround in under a week",
     ],
     // TODO: confirm pricing
-    startingPrice: "$XXX flat",
+    startingPrice: "$500 flat",
     ctaLabel: "Book an audit",
     ctaHref: CTA_URL,
   },
@@ -71,11 +71,11 @@ export const SERVICES: Service[] = [
 
 export const FEATURED_WORK: WorkItem = {
   // TODO: replace with real client work as it ships.
-  name: "Placeholder Project",
+  name: "Psychic Website",
   blurb:
-    "A short, one-paragraph case study explaining what the client needed, what I built, and the outcome. Keep it concrete — numbers if you have them.",
+    "Worked on creating a website for psychic Hope, bringing in customers through digital marketing practices",
   // TODO: live URL when client work ships.
-  liveUrl: undefined,
+  liveUrl: "psychichope.org",
   // TODO: drop a screenshot into /public/work/ and set this to
   // { src, alt, width, height }. Until then Work renders a placeholder.
   screenshot: undefined,
